@@ -1,87 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- font awesome and google fonts -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1 class="heading">
-        <img class="logo" src="assets/images/logo.jpg" alt="logo">Eclectic Cycles 
+      <img class="logo" src="assets/images/logo.jpg" alt="logo" />Eclectic
+      Cycles
     </h1>
 
-    <div class="controls-area">
-        <div class="where-to"></div>
-        <div class="where-from"></div>
-        <div class="Departure"></div>
-        <div class="Arrival"></div>
-    </div>
-    <div class="input-area">
+    <div class="dashboard-area">
+      <div class="controls-area">
+        <div class="where-to"><input id="where-to" type="text"></div>
+        <div class="where-from"><input id="where-from" type="text"></div>
+        <div class="Departure"><input id="Departure" type="time"></div>
+        <div class="Arrival"><input id="Arrival" type="time"></div>
+        <button class="btn btn-blue">Submit</button>
+      </div>
+      <div class="results-area">
         <h3>Dashboard</h3>
-        <table class="input-area">
-            <tr>
-                <th>Mode</th>
-                <th>Duration</th>
-                <th>Cost</th>
-                <th>Frequency</th>
-                <th>Interchange</th>
-                <th>Details</th>
-            </tr>
-            <tr class="bus">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="Details"><span bus="tube">0</span></td>
-            </tr>
-            <tr class="tube">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="Details"><span id="tube">0</span></td>
-            </tr>
-            <tr class="cycle">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="Details"><span id="combo">cycle</span></td>
-            </tr>
-            <tr class="walk">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="Details"><span id="walk">0</span></td>
-            </tr>
-            <tr class="combo">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="Details"><span id="combo">0</span></td>
-            </tr>
+        <table>
+          <tr>
+            <th>Mode</th>
+            <th>Duration</th>
+            <th>Cost</th>
+            <th>Frequency</th>
+            <th>Interchange</th>
+            <th>Details</th>
+          </tr>
+          <tr class="bus">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="Details">
+                <button class="btn btn--big btn--green">
+                    <i class=""></i>
+                    <span id="bus">0</span>
+                </button></td>
+          </tr>
+          <tr class="tube">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="Details"><button class="btn btn--big btn--blue"><span id="tube">0</span></button></td>
+          </tr>
+          <tr class="cycle">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="Details">
+                <button class="btn btn--big btn--orange">
+                    <i class=""></i>
+                    <span id="cycle">0</span>
+                </button>
+            </td>
+          </tr>
+          <tr class="walk">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="Details">
+                <button class="btn btn--big btn--red">
+                    <i class=""></i>
+                    <span id="walk">0</span>
+                </button>
+            </td>
+          </tr>
+          <tr class="combo">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="Details">
+                <button class="btn btn--big btn--yellow">
+                    <i class=""></i>
+                    <span bus="tube">0</span>
+                </button>
+            </td>
+          </tr>
         </table>
-        <p class="scores">Correct Answers <span id="score">0</span></p>
-        <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
+        <div class="bikes-coverage">
+            <span id=""></span>
+        </div>
+        <div class="score"></div>
+      </div>
     </div>
-
     <script src="assets/js/script.js"></script>
-</body>
-
+  </body>
 </html>
