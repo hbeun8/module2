@@ -16,14 +16,67 @@
 
 <body>
     <h1 class="heading">
-        <img class="logo" src="assets/images/logo.png" alt="logo"> Love Maths
+        <img class="logo" src="assets/images/logo.jpg" alt="logo">Eclectic Cycles 
     </h1>
 
-    <div class="-area">
-
+    <div class="controls-area">
+        <div class="where-to"></div>
+        <div class="where-from"></div>
+        <div class="Departure"></div>
+        <div class="Arrival"></div>
     </div>
-
-    <div class="score-area">
+    <div class="input-area">
+        <h3>Dashboard</h3>
+        <table class="input-area">
+            <tr>
+                <th>Mode</th>
+                <th>Duration</th>
+                <th>Cost</th>
+                <th>Frequency</th>
+                <th>Interchange</th>
+                <th>Details</th>
+            </tr>
+            <tr class="bus">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="Details"><span bus="tube">0</span></td>
+            </tr>
+            <tr class="tube">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="Details"><span id="tube">0</span></td>
+            </tr>
+            <tr class="cycle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="Details"><span id="combo">cycle</span></td>
+            </tr>
+            <tr class="walk">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="Details"><span id="walk">0</span></td>
+            </tr>
+            <tr class="combo">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="Details"><span id="combo">0</span></td>
+            </tr>
+        </table>
         <p class="scores">Correct Answers <span id="score">0</span></p>
         <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
     </div>
