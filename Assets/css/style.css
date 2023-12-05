@@ -1,3 +1,114 @@
 body{
-    background-color: blueviolet;
+    background-color:#fff;
+    position:relative;
+    padding:0;
+    margin:0;
+    overflow-x: hidden;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}/*does not work*/
+
+.dashboard-area{
+    padding:2px 4px;
+    justify-content: centre;
+    align-items: center;
+}
+
+.controls-area{
+    display:inline-block;
+    border: 2px solid #777;
+    box-sizing: border-box;
+    border-radius:4px;
+}
+
+.results-area{
+    display: table;
+    overflow-x:auto;
+    border: 2px solid #777;
+    box-sizing: border-box;
+    border-radius:4px;
+
+}
+
+table{
+    width: 100%;
+    column-rule: solid blue;
+}
+
+input:focus {
+    background-color: blue;
+    opacity: 0.5;
+    padding-left: 40px;
+}
+
+input[type="text"]{
+    background-image: url('searchicon.png');
+}
+
+.btn{
+    color:#777;
+    border-radius: 4px;
+}
+
+.btn--blue{
+    background-color: blue;
+    opacity:0.5;
+}
+
+.btn--red{
+    background-color: red;
+    opacity: 0.5;
+}
+
+.btn--green{
+    background-color: green;
+    opacity: 0.5;
+}
+
+.btn--yellow{
+    background-color: yellow;
+    opacity: 0.5;
+}
+
+.btn--orange{
+    background-color: orange;
+    opacity: 0.5;
+}
+
+.btn--big{
+    font-size:2em;
+    padding:4vw;
+}
+
+.btn--small{
+    font-size:1em;
+    padding:2vw;
+}
+
+
+/* Media query: large or landscape phones (576px and up) */
+@media screen and (min-width: 576px) {
+    .controls-area{
+        display:flex;
+        border: 2px solid #777;
+        box-sizing: border-box;
+        border-radius:4px;
+    }
+      
+}
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) {
+
+    
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+
+}
+@media screen and (min-width: 1200px) {
+
+
 }

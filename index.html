@@ -25,17 +25,17 @@
       <img class="logo" src="assets/images/logo.jpg" alt="logo" />Eclectic
       Cycles
     </h1>
-
+    <h2>Dashboard</h2>
     <div class="dashboard-area">
-      <div class="controls-area">
+      <div class="controls-area center">
         <div class="where-to"><input id="where-to" type="text"></div>
         <div class="where-from"><input id="where-from" type="text"></div>
         <div class="Departure"><input id="Departure" type="time"></div>
         <div class="Arrival"><input id="Arrival" type="time"></div>
-        <button class="btn btn-blue">Submit</button>
+        <button data-type="submit" class="btn btn--small btn--blue">Submit</button>
       </div>
+      <h3>Results</h3>
       <div class="results-area">
-        <h3>Dashboard</h3>
         <table>
           <tr>
             <th>Mode</th>
@@ -46,71 +46,86 @@
             <th>Details</th>
           </tr>
           <tr class="bus">
-            <td></td>
+            <td>Bus</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             <td class="Details">
-                <button class="btn btn--big btn--green">
+                <button data-type="details" class="btn btn--big btn--green">
                     <i class=""></i>
-                    <span id="bus">0</span>
+                    <span id="bus">Details</span>
                 </button></td>
           </tr>
           <tr class="tube">
+            <td>Tube</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td class="Details"><button class="btn btn--big btn--blue"><span id="tube">0</span></button></td>
+            <td class="Details"><button data-type="details" class="btn btn--big btn--blue"><span id="tube">Details</span></button></td>
           </tr>
           <tr class="cycle">
-            <td></td>
+            <td>Cycle</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             <td class="Details">
-                <button class="btn btn--big btn--orange">
+                <button data-type="details" class="btn btn--big btn--orange">
                     <i class=""></i>
-                    <span id="cycle">0</span>
+                    <span id="cycle">Details</span>
                 </button>
             </td>
           </tr>
           <tr class="walk">
-            <td></td>
+            <td>Walk</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             <td class="Details">
-                <button class="btn btn--big btn--red">
+                <button data-type="details" class="btn btn--big btn--red">
                     <i class=""></i>
-                    <span id="walk">0</span>
+                    <span id="walk">Details</span>
                 </button>
             </td>
           </tr>
           <tr class="combo">
-            <td></td>
+            <td>Combo</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             <td class="Details">
-                <button class="btn btn--big btn--yellow">
+                <button data-type="details" class="btn btn--big btn--yellow">
                     <i class=""></i>
-                    <span bus="tube">0</span>
+                    <span bus="tube">Details</span>
                 </button>
             </td>
           </tr>
         </table>
         <div class="bikes-coverage">
-            <span id=""></span>
+            <button data-type="tiercov" class="btn btn--big btn--green">
+                Tier Coverage
+            </button>
+            <button data-type="limecov" class="btn btn--big btn--blue">
+                Lime Coverage
+            </button>
+            <button data-type="dottcov" class="btn btn--big btn--orange">
+                Dott Coverage
+            </button>
+            <button data-type="santcov" class="btn btn--big btn--red">
+                Santander Coverage
+            </button>
+            <button data-type="hufocov" class="btn btn--big btn--red">
+                Human Forest Coverage
+            </button>
+        
         </div>
         <div class="score"></div>
       </div>
     </div>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/scripts.js"></script>
   </body>
 </html>
