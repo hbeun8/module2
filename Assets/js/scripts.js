@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
             } else{
                 let modeType= this.getAttribute("data-type");
                 alert(`You clicked ${modeType}` );
+                planJourney(modeType);
             }
         });
     }
@@ -37,11 +38,51 @@ The event listener is appended to target's event listener list and is not append
 MDN Reference*/
 
 
-function planJourney() {}
-function searchWhereTo() {}
-function searchWhereFrom() {}
-function searchDeparture() {}
-function searchArrival() {}
+/**
+ * 
+ */
+function planJourney() {
+
+    //Create variables for the journey
+    let pointA = searchWhereTo();
+    let pointB = searchWhereFrom(); 
+    let t0 = searchDeparture();
+    let t1 = searchArrival();
+
+}
+function searchWhereTo() {
+    let postcode = 'SW1A 1AA'; // Replace with the postcode you want to look up
+    const url = `https://api.postcodes.io/postcodes/${postcode}`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const { latitude, longitude } = data.result;
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        console.log(`Postcode: ${postcode} is  ${result ? `valid`: `invalid`}`);
+  })
+  .catch(error => console.error(error));
+}
+function searchWhereFrom() {
+    let postcode = 'SW1A 1AA'; // Replace with the postcode you want to look up
+    const url = `https://api.postcodes.io/postcodes/${postcode}`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const { latitude, longitude } = data.result;
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        console.log(`Postcode: ${postcode} is  ${result ? `valid`: `invalid`}`);
+  })
+  .catch(error => console.error(error));
+}
+function searchDeparture() {
+    const d = new Date();
+    document.getElementById("demo").innerHTML = d;
+}
+function searchArrival() {
+    //optional
+}
 function checkValidInputs() {}
 function showBusDetails() {}
 function showTubeDetails() {}
