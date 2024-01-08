@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
     <!-- font awesome and google fonts -->
     <link
       rel="stylesheet"
@@ -17,7 +17,7 @@
     />
 
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Document</title>
+    <title>Journey Planner</title>
   </head>
 
   <body>
@@ -28,14 +28,20 @@
     <h2>Dashboard</h2>
     <div class="dashboard-area">
       <div class="controls-area center">
-        <div class="where-to"><input id="where-to" type="text"></div>
-        <div class="where-from"><input id="where-from" type="text"></div>
+        <div class="where-to"><input id="where-to" type="text" textarea="N8 9QR"></div>
+        <button data-type="Geo" class="btn btn--small btn--blue" id = "findgeoA" >Get Geo A</button>
+        <p id="outputA"></p>
+        <div class="where-from"><input id="where-from" type="text" placeholder="Enter postcode"></div>
+        <p id="outputB"></p>
+        <button data-type="Geo" class="btn btn--small btn--green" id = "findgeoB" >Get Geo B</button>
         <div class="Departure"><input id="Departure" type="time"></div>
         <div class="Arrival"><input id="Arrival" type="time"></div>
-        <button data-type="submit" class="btn btn--small btn--blue">Submit</button>
+        <div id="travelType"></div>
+        <button data-type="Check" class="btn btn--small btn--white" id = "check" >Confirm Inputs</button>
+        <div class="score"></div><div class="incorrectScore"></div>
+        <div id="result">If inputs are valid, they will appear here</div>
       </div>
       <h3>Results</h3>
-      <div class="results-area">
         <table>
           <tr>
             <th>Mode</th>
@@ -43,87 +49,114 @@
             <th>Cost</th>
             <th>Frequency</th>
             <th>Interchange</th>
-            <th>Details</th>
+            <th>Show</th>
           </tr>
+          <div class="results-area">
           <tr class="bus">
-            <td>Bus</td>
+            <td>Bus
+              <div id="pointA"></div>
+              <div id="pointB"></div>
+              <div id="t0"></div>
+              <div id="t1"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td class="Details">
-                <button data-type="details" class="btn btn--big btn--green">
+            <td class="Show">
+                <button data-type="Bus" class="btn btn--big btn--green">
                     <i class=""></i>
-                    <span id="bus">Details</span>
+                    <span id="bus">Show</span>
                 </button></td>
           </tr>
           <tr class="tube">
-            <td>Tube</td>
+            <td>Tube
+              <div id="pointA"></div>
+              <div id="pointB"></div>
+              <div id="t0"></div>
+              <div id="t1"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td class="Details"><button data-type="details" class="btn btn--big btn--blue"><span id="tube">Details</span></button></td>
+            <td class="Show"><button data-type="Tube" class="btn btn--big btn--blue"><span id="tube">Show</span></button></td>
           </tr>
           <tr class="cycle">
-            <td>Cycle</td>
+            <td>Cycle
+              <div id="pointA"></div>
+              <div id="pointB"></div>
+              <div id="t0"></div>
+              <div id="t1"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td class="Details">
-                <button data-type="details" class="btn btn--big btn--orange">
+            <td class="Show">
+                <button data-type="Cycle" class="btn btn--big btn--orange">
                     <i class=""></i>
-                    <span id="cycle">Details</span>
+                    <span id="cycle">Show</span>
                 </button>
             </td>
           </tr>
           <tr class="walk">
-            <td>Walk</td>
+            <td>Walk
+              <div id="pointA"></div>
+              <div id="pointB"></div>
+              <div id="t0"></div>
+              <div id="t1"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td class="Details">
-                <button data-type="details" class="btn btn--big btn--red">
+            <td class="Show">
+                <button data-type="walk" class="btn btn--big btn--red">
                     <i class=""></i>
-                    <span id="walk">Details</span>
+                    <span id="walk">Show</span>
                 </button>
             </td>
           </tr>
           <tr class="combo">
-            <td>Combo</td>
+            <td>Combo
+              <div id="pointA"></div>
+              <div id="pointB"></div>
+              <div id="t0"></div>
+              <div id="t1"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td class="Details">
-                <button data-type="details" class="btn btn--big btn--yellow">
+            <td class="Show">
+                <button data-type="combo" class="btn btn--big btn--yellow">
                     <i class=""></i>
-                    <span bus="tube">Details</span>
+                    <span bus="tube">Show</span>
                 </button>
             </td>
           </tr>
+        </div>
         </table>
         <div class="bikes-coverage">
-            <button data-type="tiercov" class="btn btn--big btn--green">
+            <button data-type="Tier Coverage" class="btn btn--big btn--green">
                 Tier Coverage
             </button>
-            <button data-type="limecov" class="btn btn--big btn--blue">
+            <button data-type="Lime Coverage" class="btn btn--big btn--blue">
                 Lime Coverage
             </button>
-            <button data-type="dottcov" class="btn btn--big btn--orange">
+            <button data-type="Dott Coverage" class="btn btn--big btn--orange">
                 Dott Coverage
             </button>
-            <button data-type="santcov" class="btn btn--big btn--red">
+            <button data-type="Santander Coverage" class="btn btn--big btn--red">
                 Santander Coverage
             </button>
-            <button data-type="hufocov" class="btn btn--big btn--red">
+            <button data-type="Human Forest Coverage" class="btn btn--big btn--red">
                 Human Forest Coverage
             </button>
         
         </div>
-        <div class="score"></div>
+        
       </div>
     </div>
     <script src="assets/js/scripts.js"></script>
