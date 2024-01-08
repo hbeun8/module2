@@ -1,7 +1,6 @@
 
 //Add startup code
 //Listen to button click events
-
 document.addEventListener("DOMContentLoaded", function(){
     let buttons = document.getElementsByTagName("button");
     //this gets the buttons
@@ -63,9 +62,6 @@ function searchWhereTo() {
   })
   .catch(error => console.error(error));
 }
-function searchWhereFrom() {
-    let postcode = 'SW1A 1AA'; // Replace with the postcode you want to look up
-    const url = `https://api.postcodes.io/postcodes/${postcode}`;
 
     fetch(url)
     .then(response => response.json())
