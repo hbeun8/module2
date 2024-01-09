@@ -37,11 +37,7 @@ table{
     column-rule: solid blue;
 }
 
-input:focus {
-    background-color: blue;
-    opacity: 0.5;
-    padding-left: 40px;
-}
+
 
 input[type="text"]{
     background-image: url('searchicon.png');
