@@ -1,24 +1,32 @@
+//The website allows you to plan your journey with cycle and compare with other modes of transport. 
+
+
+
 //We want to load default journey for cycle on start up! 
 //Add startup code
-//Listen to button click events
+//Listen to event listners, such as button click events and inputs cell input
 document.addEventListener("DOMContentLoaded", function(){
+    //gets all buttons
     let buttons = document.getElementsByTagName("button");
+    //gets all input cells
     let inputcells = document.getElementsByTagName("input");
-    //this gets the buttons
-    //list of all tags: https://www.geeksforgeeks.org/html-tags-a-to-z-list/
+    
+    // -> to be removed - list of all tags: https://www.geeksforgeeks.org/html-tags-a-to-z-list/
 
+    //Alert box appears when data-type = submit else it shows traveltype kicks of planJourney function
     for (let button of buttons){
         button.addEventListener("click", function(){
             if(this.getAttribute("data-type") === "submit"){
-                alert("You clicked submit!");
+                alert("You clicked submit!"); //replace this with API for wait times
             } else{
                 let travelType= this.getAttribute("data-type");
-                alert(`You clicked ${travelType}` );
-                planJourney(travelType);
+                alert(`You clicked ${travelType}` ); // remove this when appropriate
+                //planJourney(travelType); 
             }
         });
     }
 
+    // remove this or we need it for searching inout box. 
     for (let cell of inputcells){
         cell.addEventListener("click", function(){
             if(this.getAttribute("type") === "text"){
@@ -26,14 +34,14 @@ document.addEventListener("DOMContentLoaded", function(){
             } else{
                 let inputType= this.getAttribute("type");
                 alert(`You clicked ${inputType}` );
-                planJourney(travelType);
+                //planJourney(travelType);
             }
         });
     }
 });
 
-//Events =  interesting thing!
-//List of Events https://developer.mozilla.org/en-US/docs/Web/Events
+//-> rmeove thhis Events =  interesting thing!
+//- > remove thisList of Events https://developer.mozilla.org/en-US/docs/Web/Events
 
 /*Appends an event listener for events whose type attribute value is type. The callback argument sets the callback that will be invoked when the event is dispatched.
 
@@ -51,24 +59,58 @@ The event listener is appended to target's event listener list and is not append
 
 MDN Reference*/
 
-/**
- * 
- */ 
+async function searchPostcode(postcode_in) {
+
+    let postcode = postcode_in
+    const url = `https://api.postcodes.io/postcodes/${postcode}`;
+    fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        displaydata(data);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+}
+
+
+// this bit of code, displays geo location. 
+function displaydata(data) {
+    const locA = data.result.latitude;
+    const outA = document.getElementById("outputA");
+    outA.innerHTML = locA;
+}
+
+const geoA = document.getElementById("where-to").value;
+
+//document.getElementById("findgeoA").addEventListener("click", searchPostcode(geoA));
+
+//document.getElementById("findgeoA").addEventListener("click", searchPostcode("e14"));
+
+/*
+const geoA = document.getElementById("where-to");
+const btnA = document.getElementById("findgeoA");
+const outA = document.getElementById("outputA");
+outA.innerHTML = btnA.addEventListener("click",geoA => searchPostcode(geoA));
+
+document.getElementById("outputA").innerHTML = searchPostcode("n8 9Qr")
 // this bit of code, displays geo location when the button is clicked. 
-const geoA = document.getElementById('where-to');
-const btnA = document.getElementById('findgeoA');
-const outA = document.getElementById('outputA');
-outA.innerHTML = btn1.addEventListener('click',searchpostcode(geoA);
-
-const geoB = document.getElementById('where-from');
+const geoB = docume nt.getElementById('where-from');
 const btnB = document.getElementById('findgeoB');
-const outB = document.getElementById('outputAB');
-outA.innerHTML = btn1.addEventListener('click',searchpostcode(geoA);
+const outB = document.getElementById('outputB');
+outB.innerHTML = btnB.addEventListener('click',searchPostcode(geoB));
+*/
 
+/*
 function planJourney(travelType) {
     //this creates an empty results area.
-    document.getElementById("result area").value= "";
-    document.getElementById("where-to").focus();
+    document.getElementById("result area").value= "";    document.getElementById("where-to").focus();
 
     //this function will be call for each travel mode.
     //Create variables for the journey
@@ -99,23 +141,6 @@ function planJourney(travelType) {
         throw `Unknown travel type: $(travelType). Aborting!` ;  
     }
     }
-
-// this function will be trigered by a button and return lat/ long     
-function searchpostcode(cell, postcode_in) {
-
-    let postcode = postcode_in
-    const url = `https://api.postcodes.io/postcodes/${postcode}`;
-
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        const { latitude, longitude } = data.result;
-        alert(`Latitude: ${latitude}, Longitude: ${longitude}`);
-        //console.log(`Postcode: ${postcode} is  ${result ? `valid`: `invalid`}`);
-        //document.write(postcode);
-  })
-  .catch(error => console.error(error));
-}
 
  // this function will set the departure time
 function searchDeparture() {
@@ -210,9 +235,13 @@ The result is that we never see the score being  updated.*/
 /*dom before it has had one added to it. Putting  the double plus signs before the variable means  
 that JavaScript will get the ID of score,  then set the inner text to one plus old score.  
 So we see our score being updated. It's just  an interesting little thing that sometimes you  */
-    document.getElementById("score").innerText = ++oldScore;
+
+/*
+
+document.getElementById("score").innerText = ++oldScore;
 }
 function IncrementWrongeAnswer() {
     let oldScore = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldScore;
 }
+*/

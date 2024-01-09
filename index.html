@@ -28,9 +28,9 @@
     <h2>Dashboard</h2>
     <div class="dashboard-area">
       <div class="controls-area center">
-        <div class="where-to"><input id="where-to" type="text" textarea="N8 9QR"></div>
-        <button data-type="Geo" class="btn btn--small btn--blue" id = "findgeoA" >Get Geo A</button>
-        <p id="outputA"></p>
+        <div class="where-to"><input id="where-to" type="text" placeholder="N8 9QR" text="N8 9QR"></div>
+        <p id="outputA">None</p>
+        <button data-type="Geo" class="btn btn--small btn--blue" id = "findgeoA" onclick="searchPostcode(document.getElementById('where-to').value);">Get Geo A</button>
         <div class="where-from"><input id="where-from" type="text" placeholder="Enter postcode"></div>
         <p id="outputB"></p>
         <button data-type="Geo" class="btn btn--small btn--green" id = "findgeoB" >Get Geo B</button>
@@ -43,7 +43,7 @@
       </div>
       <h3>Results</h3>
         <table>
-          <tr>
+          <tr>    
             <th>Mode</th>
             <th>Duration</th>
             <th>Cost</th>
@@ -159,6 +159,6 @@
         
       </div>
     </div>
-    <script src="assets/js/scripts.js"></script>
+    <script src="Assets\js\scripts.js"></script>
   </body>
 </html>
