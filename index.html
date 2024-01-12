@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    
     <!-- font awesome and google fonts -->
     <link
       rel="stylesheet"
@@ -15,143 +15,116 @@
       href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous"
       rel="stylesheet"
     />
-
+    <link rel="icon" type="image/png" sizes="16x16" href="../Assets/Favicon/favicon.ico">
+    <!-- Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Journey Planner</title>
   </head>
 
   <body>
     <h1 class="heading">
-      <img class="logo" src="assets/images/logo.jpg" alt="logo" />Eclectic
-      Cycles
+      Journey Planner
     </h1>
+    <span id="digital-clock"></span>
     <h2>Dashboard</h2>
+    <h3>Plan your journey</h3>
     <div class="dashboard-area">
-      <div class="controls-area center">
-        <div class="where-to"><input id="where-to" type="text" placeholder="N8 9QR" text="N8 9QR"></div>
-        <p id="outputA">None</p>
-        <button data-type="Geo" class="btn btn--small btn--blue" id = "findgeoA" onclick="searchPostcode(document.getElementById('where-to').value);">Get Geo A</button>
-        <div class="where-from"><input id="where-from" type="text" placeholder="Enter postcode"></div>
-        <p id="outputB"></p>
-        <button data-type="Geo" class="btn btn--small btn--green" id = "findgeoB" >Get Geo B</button>
-        <div class="Departure"><input id="Departure" type="time"></div>
-        <div class="Arrival"><input id="Arrival" type="time"></div>
-        <div id="travelType"></div>
-        <button data-type="Check" class="btn btn--small btn--white" id = "check" >Confirm Inputs</button>
-        <div class="score"></div><div class="incorrectScore"></div>
-        <div id="result">If inputs are valid, they will appear here</div>
-      </div>
+        <div class="controls-area">
+          <div class="container border border-white">
+            <div class="row">
+              <div class="col-sm border border-white">
+                <p><u><b>Where From:</b></u><p> 
+                  <div class="where-from"><input id="where-from" type="text" placeholder="Enter postcode"></div>
+              </div>
+              <div class="col-sm border border-white">
+                <p><u><b>Check:</b></u><p> 
+                  <button data-type="Geo" class="secondary-btn btn--blue" id = "findgeoA" onclick="searchPostcodeA(document.getElementById('where-from').value);">Confirm "From" Postcode</button>
+                  <p id="outputA"></p>
+              </div>
+              <div class="col-sm border border-white" >  
+              <p><u><b>Where To:</b></u><p>
+                <div class="where-to"><input id="where-to" type="text" placeholder="N8 9QR" text="N8 9QR"></div> 
+              </div>
+              <div class="col-sm border border-white">
+              <p><u><b>Check</b></u><p>
+                <button data-type="Geo" class="secondary-btn btn--blue" id = "findgeoB" onclick="searchPostcodeB(document.getElementById('where-to').value);">Confirm "To" Postcode</button>
+                <p id="outputB"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
       <h3>Results</h3>
+      <h4 id="resultsMessage"></h4>
+      <h4>Suggested Routes</h4>
         <table>
           <tr>    
             <th>Mode</th>
+            <th>Distance</th>
             <th>Duration</th>
-            <th>Cost</th>
-            <th>Frequency</th>
             <th>Interchange</th>
-            <th>Show</th>
+            <th>Cost</th>
+            <th>Results</th>
           </tr>
           <div class="results-area">
           <tr class="bus">
-            <td>Bus
-              <div id="pointA"></div>
-              <div id="pointB"></div>
-              <div id="t0"></div>
-              <div id="t1"></div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Bus</td>
+            <td id="busDistance"></td>
+            <td id="busDuration"></td>
+            <td id="busInterchange"></td>
             <td class="Show">
-                <button data-type="Bus" class="btn btn--big btn--green">
+                <button data-type="Bus" class="secondary-btn btn--blue" onclick="planJourney(document.getElementById('where-from').value,document.getElementById('where-to').value, 'Bus');">
                     <i class=""></i>
-                    <span id="bus">Show</span>
+                    <span id="bus">Bus Results</span>
                 </button></td>
           </tr>
           <tr class="tube">
-            <td>Tube
-              <div id="pointA"></div>
-              <div id="pointB"></div>
-              <div id="t0"></div>
-              <div id="t1"></div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="Show"><button data-type="Tube" class="btn btn--big btn--blue"><span id="tube">Show</span></button></td>
+            <td>Tube</td>
+            <td id="tubeDistance"></td>
+            <td id="tubeDuration"></td>
+            <td id="tubeInterchange"></td>
+            <td class="Show">
+              <button data-type="Tube" class="secondary-btn btn--blue" onclick="planJourney(document.getElementById('where-from').value,document.getElementById('where-to').value, 'Tube');">
+              <span id="tube">Tube Results</span>
+              </button></td>
           </tr>
           <tr class="cycle">
-            <td>Cycle
-              <div id="pointA"></div>
-              <div id="pointB"></div>
-              <div id="t0"></div>
-              <div id="t1"></div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Cycle</td>
+            <td id="cycleDistance"></td>
+            <td id="cycleDuration"></td>
+            <td id="cycleInterchange"></td>
             <td class="Show">
-                <button data-type="Cycle" class="btn btn--big btn--orange">
-                    <i class=""></i>
-                    <span id="cycle">Show</span>
-                </button>
-            </td>
+                <button data-type="Cycle" class="secondary-btn btn--blue" onclick="planJourney(document.getElementById('where-from').value,document.getElementById('where-to').value, 'Cycle');">
+                <span id="cycle">Cycle Results</span>
+                </button></td>
           </tr>
           <tr class="walk">
-            <td>Walk
-              <div id="pointA"></div>
-              <div id="pointB"></div>
-              <div id="t0"></div>
-              <div id="t1"></div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Walk</td>
+            <td id="walkDistance"></td>
+            <td id="walkDuration"></td>
+            <td id="walkInterchange"></td>
             <td class="Show">
-                <button data-type="walk" class="btn btn--big btn--red">
-                    <i class=""></i>
-                    <span id="walk">Show</span>
-                </button>
-            </td>
-          </tr>
-          <tr class="combo">
-            <td>Combo
-              <div id="pointA"></div>
-              <div id="pointB"></div>
-              <div id="t0"></div>
-              <div id="t1"></div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="Show">
-                <button data-type="combo" class="btn btn--big btn--yellow">
-                    <i class=""></i>
-                    <span bus="tube">Show</span>
-                </button>
-            </td>
+                <button data-type="walk" class="secondary-btn btn--blue" onclick="planJourney(document.getElementById('where-from').value,document.getElementById('where-to').value, 'Walk');">
+                <span id="walk">Walk Results</span>
+                </button></td>
           </tr>
         </div>
         </table>
+        <div id="map">Add Map</div>
         <div class="bikes-coverage">
-            <button data-type="Tier Coverage" class="btn btn--big btn--green">
+            <button data-type="Tier Coverage" class="secondary-btn btn--green">
                 Tier Coverage
             </button>
-            <button data-type="Lime Coverage" class="btn btn--big btn--blue">
+            <button data-type="Lime Coverage" class="secondary-btn btn--blue">
                 Lime Coverage
             </button>
-            <button data-type="Dott Coverage" class="btn btn--big btn--orange">
+            <button data-type="Dott Coverage" class="secondary-btn btn--orange">
                 Dott Coverage
             </button>
-            <button data-type="Santander Coverage" class="btn btn--big btn--red">
+            <button data-type="Santander Coverage" class="secondary-btn btn--red">
                 Santander Coverage
             </button>
-            <button data-type="Human Forest Coverage" class="btn btn--big btn--red">
+            <button data-type="Human Forest Coverage" class="secondary-btn btn--red">
                 Human Forest Coverage
             </button>
         
@@ -160,5 +133,7 @@
       </div>
     </div>
     <script src="Assets\js\scripts.js"></script>
+    <script type="module" src="Assets\js\index.js"></script>
+    
   </body>
 </html>
