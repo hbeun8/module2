@@ -1,110 +1,544 @@
-body{
-    background-color:#fff;
-    position:relative;
-    padding:0;
+/* Google fonts import */ 
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+
+/* Asterisk wildcard selector to override default styles added by the browser */
+*{
     margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Exo, sans-serif;
     overflow-x: hidden;
 }
-.center {
-    margin-left: auto;
-    margin-right: auto;
-}/*does not work*/
 
-.dashboard-area{
-    padding:2px 4px;
-    justify-content: centre;
+/* General styles */
+.body{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    background-color: #cdc4b5;
+}
+
+h1, h2, h3{
+    color:#777;
+    font-family: 'Roboto', sans-serif;
+}
+.vehicles h2, .benefits h2{
+    color: #777;
+}
+p, a{
+    color: #777;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+h2{
+    font-weight: 600;
+}
+
+header{
+    height: 100dvh; /*Useful for Mobile view*/
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(
+    to bottom,
+    rgba(4,9,30,0.3),
+    rgba(4,9,30,0.3)
+  ), url("Hero-image1.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index:-1;
+}
+
+.start-moving{
+    position: absolute;
+    top: 10%;
+    left:20%;
+    text-align: left;
+}
+
+.start-moving > h1{
+    font-size: 12vw;
+    font-weight: 900;
+    opacity: 0.55;
+    color: black;
+    z-index:1;
+}
+
+.landing-text > p{
+    font-size: 2vw;
+}
+
+/*Toggle Nav*/
+
+nav{
+    position: fixed;
+    padding: 2px 4px;
+       
+}
+
+i {
+    width:100%;
+    padding: 2px 2px;
+}
+.nav-toggle-label > i {
+    position: absolute;
+    top: 28%;
+    left: 10%;
+    visibility: visible;
+    font-size: 1.5rem;
+    width:fit-content;
+    }
+
+#nav-toggle{
+    display: none;
+}
+
+.nav-links{
+    /*consider removing*/
+    text-align: center;
+}
+
+.nav-links {
+    visibility: hidden;
+    transition: 0.5ms;
+}
+
+#nav-toggle:checked~.nav-links{
+    visibility: visible;
+    z-index: 99;
+}
+
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 0px 6px;
+    position: relative;
+}
+
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    z-index: 99;
+    font-size: 3vw;
+    font-weight: 600;
+    transition: 0.5s;
+}
+.nav-links ul li a:hover{
+    color: #fff;
+}
+
+.nav-links ul li::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #efc395;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+
+.nav-links ul li:hover::after{
+    width: 10%;
+}
+
+.landing-text{
+    display:block;
+    color: #fff;
+    position: absolute;
+    top:51%;
+    left:49%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    width:100%;
+}
+
+.landing-text > h1{
+    font-size: 9vw;
+    color: #fff;
+}
+
+.landing-text > p
+ {
+    font-size: 4vw;
+    color: #fff;
+}
+
+
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    border: 2px solid #efc395;
+    margin: 8px;
+    padding: 8px 2vw;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 1s;
+}
+
+.hero-btn:hover{
+    border: 2px solid #efc395;
+    background: #efc395;
+    
+}
+
+.participants-logo{
+    margin: 8px;
+    padding: 2vw;
+    position: relative;
+    text-align: center;
+}     
+
+.participants-logo ul li{
+    list-style: none;
+    display: inline;
+    margin-bottom: 2px;
+}
+
+.secondary-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #777;
+    border: 2px solid #efc395;
+    margin: 8px;
+    padding: 8px 34px;
+    font-size: 14px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 1s;
+}
+
+.secondary-btn:hover{
+    border: 2px solid #efc395;
+    background: #efc395;
+
+}
+
+
+.row{
+    display: flex;
+    justify-content:space-between;
     align-items: center;
 }
 
-.controls-area{
-    display:inline-block;
-    border: 2px solid #777;
+.participants{
+    width:100vw;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+}
+
+.participants h1,.participants h2, .participants h3, .participants p {
+    color: #777;
+    
+}
+
+.participants-col{
+    flex-wrap:wrap;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 1%;
+    padding: 20px 12px;
     box-sizing: border-box;
-    border-radius:4px;
+    transition:0.5s;
 }
 
-.results-area{
-    display: table;
-    overflow-x:auto;
-    border: 2px solid #777;
-    box-sizing: border-box;
-    border-radius:4px;
-
-}
-
-table{
-    width: 100%;
-    column-rule: solid blue;
-}
-
-
-
-input[type="text"]{
-    background-image: url('searchicon.png');
-}
-
-.btn{
+.participants-col > 
+h3 {
     color:#777;
-    border-radius: 4px;
+    text-align: center;
+    font-weight: 600;
 }
 
-.btn--blue{
-    background-color: blue;
-    opacity:0.5;
+.participants-col:hover{
+    box-shadow: 0 0 20px 0px;
 }
 
-.btn--red{
-    background-color: red;
-    opacity: 0.5;
+.vehicles{
+    width:100vw;
+    margin: auto;
+    text-align: center;
+    padding: 0px 50px;
 }
 
-.btn--green{
-    background-color: green;
-    opacity: 0.5;
+.vehicles h1, .vehicles h2,.vehicles h3,.vehicles p{
+    color: #777;
 }
 
-.btn--yellow{
-    background-color: yellow;
-    opacity: 0.5;
+.vehicles-col{
+    background-color: #cdc4b5;
+    flex-basis: 100%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
 }
 
-.btn--orange{
-    background-color: orange;
-    opacity: 0.5;
+.vehicles-col img{
+    margin-top:auto;
+    border-radius:10px;
+    width:100%
+}
+.vehicles-col img:hover{
+    box-shadow: 0 0 20px;
 }
 
-.btn--big{
-    font-size:2em;
-    padding:4vw;
+.vehicles-col p{
+    padding:0;
 }
 
-.btn--small{
-    font-size:1em;
-    padding:2vw;
+.vehicles-col h3{
+    margin: 15px;
+    text-align: center;
 }
 
+
+.benefits h1, .benefits h2, .benefits h3{
+    color: #777;
+}
+
+.benefits p{
+    color:#fff;
+}
+
+.benefits {
+    width:100vw;
+    margin: auto;
+    text-align: center;
+    padding:25px 50px;
+    
+}
+
+.benefits-col{
+    background-color: rgba(223,146,1,1);
+    flex-basis: 100%;
+    border-radius: 10px;
+    text-align: left;
+    align-items: center;
+    z-index: 1;
+}
+
+.benefits-col ul {
+    list-style-type: square; 
+    list-style-position: outside;
+    margin: 5px;
+    text-align: left;
+    color: #fff;
+}
+
+
+footer{
+    background: rgba(67, 91, 147,1);
+    width:100vw;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    padding: 25px;
+    z-index: -1;
+}
+
+footer h1, h2{
+    color:#fff;
+}
+
+.footer-col{
+    display: flex;
+}
+#social-networks{
+    display:block;
+}
+
+#social-networks i{
+    color: #fff;
+}
+
+
+#social-networks ul{
+    list-style-position: outside;
+    margin:0;
+    padding:0;
+}
+
+
+.radio-buttons label{
+    display: inline;
+}
+
+.footer-col{
+    z-index: 1;
+    flex-basis: 100%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+}
+
+#qr_code > img{
+    margin: 2px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-col p, label{
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size
+    : 16px;
+    font-weight: 300;
+}
+
+.radio-button{
+    display: block;
+}
+.join-button{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #efc395;
+    margin: 8px;
+    padding: 8px 34px;
+    font-size: 14px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.join-button:hover{
+    border: 2px solid #efc395;
+    background: #efc395;
+    transition: 1s;
+}
 
 /* Media query: large or landscape phones (576px and up) */
 @media screen and (min-width: 576px) {
-    .controls-area{
-        display:flex;
-        border: 2px solid #777;
-        box-sizing: border-box;
-        border-radius:4px;
-    }
-      
+   
 }
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
 
+    header{
+        background-image: linear-gradient(
+        to bottom,
+        rgba(4,9,30,0.3),
+        rgba(4,9,30,0.3)
+      ), url("Hero-image.png");
+    }
+    
+    .start-moving{
+        top:38%;
+        left:5%;
+        text-align: left;
+    }
+    
+    .start-moving > h1{
+        font-size: 8vw;
+    }
+    
+    .landing-text > h1{
+        font-size: 6vw;
+
+    }
+    .landing-text > p{
+        font-size: 1.5vw;
+    }
+    
+    .participants-logo{
+        flex:100%;
+        top:75%;
+        left: 48%;
+        transform: translate(-50%,-50%);
+    }     
+
+    nav{
+        display: flex;
+        padding-top: 2%;
+        padding-left: 4%;
+        padding-right: 4%;
+        justify-content:center;
+        align-items: center;
+        height:auto;
+        position:fixed;
+        z-index:99;
+        width:100%
+        
+    }
+      
+    .nav-toggle-label > i{
+    display: none;
+    }
+
+    .nav-links {
+        visibility: visible;
+        
+    }
+    
+    .nav-links ul li a{
+        font-size: 2vw;
+        color:#777;
+    }
+
+    .nav-links ul li a:hover{
+        color:#fff;
+    }
+
+
+    .footer-col{
+        flex-basis: 50%;
+        height:400px
+    }
+
+    .signup {
+        position: relative;
+        top: -20%;
+        translate: (-50%,-50%);
+        padding: 1000px;
+    }
     
 }
 
 /* Large devices (laptops and desktops, 992px and up) */
 @media screen and (min-width: 992px) {
 
+.footer-col{
+    display: flex;
+    flex-basis: 33%;
+    vertical-align: top;
+}
+
 }
 @media screen and (min-width: 1200px) {
 
-
 }
+/*Bookings Page*/
+.journeyPlanner{
+    margin:auto;
+    padding-top: 100px;
+    text-align: center;
+    background-color: rgba(223,146,1,0.3);
+}
+
+
+/*Safety Page*/
+
+/*Scroll to bottom*/
+  
+.scroll-container {
+    position: fixed;
+    bottom: 10%;
+    right:5%;
+    z-index: 99;
+  }
+
+
+   .scroll-container a {
+    color: #777;
+    cursor: pointer;
+    font-size: 20px;
+  }
