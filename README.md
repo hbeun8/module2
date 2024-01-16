@@ -8,7 +8,7 @@ This is the ReadMe.md for the project below. The main purpose of this document i
 
 ## Project name: Eclectic Cycles - Journey Planner and Comparer
 
-Purpose of the website: This project builds on the work performed in Module 1 - Eclectic Cycles. For this project we have added Journey Planner and Comparer to the website so that users can plan their journey using rented electric cycles. Furthermore, it also allows the user make comparisions with other modes of transportation such as Walking, Buses, Tube and Car. 
+Purpose of the website: This project builds on the work performed in Module 1 - Eclectic Cycles. For this project we have added Journey Planner and Comparer to the website so that users can plan their journey using rented electric cycles. Furthermore, it also allows the user make comparisions with other modes of transportation such as Walking, Buses and Tube. 
 
 Over the shorter distance, shared E-Cycles has demonstrated itself to be more virtuous than mass public demonstration, by being quicker, more affordable, more flexible and with zero emissions it is also kinder to mother nature. It is the aim of the project to evidence this with live data using the Transport for London Api live data.
 
