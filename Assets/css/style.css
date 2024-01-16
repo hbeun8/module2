@@ -11,6 +11,14 @@
     overflow-x: hidden;
 }
 
+#digital-clock {
+    font: bold 20px sans;
+    color: white;
+    background: transparent;
+    padding:5px;
+    border: solid grey 2px;
+    border-radius: 10px;
+}
 /* General styles */
 .body{
     display: flex;
@@ -540,6 +548,7 @@ footer h1, h2{
     bottom: 10%;
     right:5%;
     z-index: 99;
+    
   }
 
 

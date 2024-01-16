@@ -98,7 +98,7 @@ function displaydataB(data) {
     const outA = document.getElementById("outputA");
     const outB = document.getElementById("outputB");
     outB.innerHTML = locB;
-    resultsMessage = `Your options for the journey from ${outA.innerHTML} to ${outB.innerHTML}`;
+    resultsMessage = `Journey from ${outA.innerHTML} to ${outB.innerHTML}`;
     document.getElementById("resultsMessage").innerHTML = resultsMessage;
 }
 
