@@ -147,12 +147,7 @@ This project follows from Module 1 where we took feedback from two group: <br>
 
 # 8. Deployment {#8-deployment}
 
-The site was deployed to GitHub pages. The steps to deploy were as follows:
-
-- In the GitHub repository, navigate to the Settings tab.<br>
-- From the source section drop-down menu, select the Master Branch.<br>
-- Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.<br>
-- The live link can be found here - (https://hbeun8.github.io/Module-1)
+The site has not been deployed to GitHub pages. 
 
 # 9. Special Thanks {#9-special-thanks}
 
