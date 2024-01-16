@@ -118,9 +118,8 @@ function planJourney(from, to, mode){
             url = `https://api.tfl.gov.uk/Journey/JourneyResults/${from}/to/${to}?timeIs=Departing&journeyPreference=LeastInterchange&mode=Tube&accessibilityPreference=NoRequirements&walkingSpeed=Slow&cyclePreference=None&bikeProficiency=Easy`
             break;
         case "Walk":
-            url = `https://api.tfl.gov.uk/Journey/JourneyResults/${from}/to/${to}?timeIs=Departing&journeyPreference=LeastWalking&mode=Walk&accessibilityPreference=NoRequirements&walkingSpeed=Average&cyclePreference=None&bikeProficiency=Easy&walkingOptimization=True`
+            url = `https://api.tfl.gov.uk/Journey/JourneyResults/${from}/to/${to}?timeIs=Departing&Preference=NoRequirements&walkingSpeed=Fast&cyclePreference=None&bikeProficiency=Easy`
             break;
-
     }
 
     fetch(url, {
@@ -183,18 +182,18 @@ function showTubeDetails(data) {
     const tubeOptions = data.length;
     document.getElementById("tubeRoutes").innerHTML = `There are ${tubeOptions} possible routes:`;
     document.getElementById("tubeInterchange").innerHTML = `They require upto ${data[0].legs.length} interchanges.`;
-    for (i=0;i<busOptions;i++){
+    for (i=0;i<tubeOptions;i++){
         document.getElementById("tubeDuration").innerHTML += `Routes #${i+1} takes:${parseInt(data[i].duration)} minutes.`;
     }
 }
 
 function showWalkingDetails(data) {
     document.getElementById("walkDuration").innerHTML=``;
-    document.getElementById("walkDuration").innerHTML = `Routes #1 takes:${parseInt(data[0].duration)} minutes.`;
+    document.getElementById("walkDuration").innerHTML = `This journey will take ${parseInt(data[0].duration)} minutes.`;
 }
 
 function showCycleDetails(data) {
     document.getElementById("cycleDuration").innerHTML=``;
-    document.getElementById("cycleDuration").innerHTML = `Route #1 takes:${parseInt(data[0].duration)} minutes.`;
-    document.getElementById("cycleCost").innerhtml = `£ ${parseFloat(data[0].duration*0.17)}`
+    document.getElementById("cycleDuration").innerHTML = `This journey will take ${parseInt(data[0].duration)} minutes.`;
+    document.getElementById("cycleCost").innerHTML = `£ ${Math.round(parseFloat(data[0].duration*0.17))}`
 }
