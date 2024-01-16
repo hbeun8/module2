@@ -216,10 +216,16 @@ i {
     transition: 1s;
 }
 
+.btn--blue{
+    background-color: blue;
+    opacity: 0.5;
+}
+
 .secondary-btn:hover{
     border: 2px solid #efc395;
     background: #efc395;
-
+    color: black;
+    font: 16px bold;
 }
 
 

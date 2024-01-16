@@ -22,9 +22,8 @@
 <main>
     <span id="digital-clock"></span>
 </main>
-
 <section class="journeyPlanner">
-    <h1></h1>
+    <h1>Eclectic Cycles</h1>
     <h2>Dashboard</h2>
     <h3>Journey Planner</h3>
     <div class="dashboard-area">
@@ -59,14 +58,19 @@
                     <img width=280 src="Assets\Images\Bus.jpg" class="rounded float-left" alt="Bus">
                 </div>
                 <div class="col-sm border border-white">
-                    <p><u>Fastest Journey with Bus</u></p>
-                    <p>Distance </p>
-                    <p>Duration: 1Hr 10Min</p>
-                    <p>Cost: 2.80</p>
-                    <p>Minimum Interchange: 1</p> 
+                    <p><u>Fastest Routes with Bus</u></p>
+                    <p id="busRoutes"></p>
+                    <p><u>Interchange:</u></p>
+                    <p id="busInterchange"></p>
+                    <p><u>Duration:</u></p>
+                    <p id="busDuration"></p>
+                    <p><u>Cost*</u></p>
+                    <p id="busCost">Daily cap is £5.25. </p>
+                    <p>*Hopper fare allows unlimited bus journeys within one hour of first touching in for £1.75.</p>
+                    <button data-type="Bus" class="secondary-btn btn--blue" onclick="planJourney(document.getElementById('where-from').value,document.getElementById('where-to').value, 'Bus');">
+                    <span id="bus">Bus Results</span>
+                    </button>
                 </div>
-          <div class="col-sm border border-white">
-            <a href="" class="secondary-btn">Book this journey</a>
           </div>
         </div>
         <div class="row">
@@ -74,13 +78,18 @@
             <img width=280 src="Assets\Images\Tube.jpg" class="rounded float-left" alt="Tube">
           </div>
           <div class="col-sm border border-white">
-            <p><u>Fastest Journey with Tube</u></p>
-            <p>Duration: 55Min</p>
-            <p>Cost: 3.80</p>
-            <p>Minimum Interchange: 1</p>
-          </div>
-          <div class="col-sm border border-white">
-            <a href="" class="secondary-btn">Book this journey</a>
+            <p><u>Fastest Routes with Tube</u></p>
+            <p id="tubeRoutes"></p>
+            <p><u>Interchange:</u></p>
+            <p id="tubeInterchange"></p>
+            <p><u>Duration:</u></p>
+            <p id="tubeDuration"></p>
+            <p><u>Cost*</u></p>
+            <p id="tubeCost">Daily cap for zones 1-4 is £11.70. A single fare journey costs £3.40/£2.80</p>
+            <p>*Alternative fares: Avoiding zone 1, a single fare journey costs £1.75.</p>
+            <button data-type="Tube" class="secondary-btn btn--blue" onclick="planJourney(document.getElementById('where-from').value,document.getElementById('where-to').value, 'Tube');">
+            <span id="tube">Tube Results</span>
+            </button>
           </div>
         </div>
         <div class="row" id="ecycle">
@@ -88,15 +97,16 @@
             <img width=280 src="Assets\Images\Cycle.jpg" class="rounded float-left" alt="Cycle">
           </div>
           <div class="col-sm border border-white">
-            <p><u>Fastest Journey with E-Cycle</u></p>
-            <p>Duration: 35Min</p>
-            <p>Cost: 0.90p</p>
-            <p>Minimum Interchange: 1</p>
-          </div>
-          <div class="col-sm border border-white">
-            <a href="" class="secondary-btn">Book this journey</a>
-            <p>Click on the map to see available E-Bikes in this area.</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d19856.14710517594!2d-0.18129861166525485!3d51.531222567008754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSantander%20Cycle%20Hire!5e0!3m2!1sen!2suk!4v1701604218552!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p><u>Fastest Route with Cycle</u></p>
+            <p id="cycleDistance"></p>
+            <p><u>Duration:</u></p>
+            <p id="cycleDuration"></p>
+            <p><u>Cost*</u></p>
+            <p>Daily charge 17p per minute. Total Cost:</p>
+            <p id="cycleCost"></p>
+            <button data-type="Cycle" class="secondary-btn btn--blue" onclick="planJourney(document.getElementById('where-from').value,document.getElementById('where-to').value, 'Cycle');">
+            <span id="cycle">Cycle Results</span>
+            </button>
           </div>
         </div>
         <div class="row">
@@ -104,19 +114,15 @@
             <img width=280 src="Assets\Images\Combo.jpg" class="rounded float-left" alt="Combo">
           </div>
           <div class="col-sm border border-white">
-            <p><u>Fastest Journey with Combined</u></p>
-            <p>Duration: 1hr</p>
-            <p>Cost: 3.80</p>
-            <p>Minimum Interchange: 2</p>
-          </div>
-          <div class="col-sm border border-white">
-            <a href="" class="secondary-btn">Book this journey</a>
+            <p><u>Walking</u></p>
+            <p id="walkDistance"></p>
+            <p id="walkDuration"></p>
+            <button data-type="walk" class="secondary-btn btn--blue" onclick="planJourney(document.getElementById('where-from').value,document.getElementById('where-to').value, 'Walk');">
+            <span id="walk">Walk Results</span>
+            </button>
           </div>
         </div>
       </div>
-      <h3>Router Planner</h3>
-      <div class="col-sm border border-white"></div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d39698.85551405956!2d-0.19237063554046763!3d51.54662636364354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e1!4m5!1s0x48761b8e9f69f329%3A0x404352348e379d2!2sFinsbury%20Park%2C%20London!3m2!1d51.564578399999995!2d-0.10472569999999999!4m5!1s0x487610065a3a86ad%3A0xfe146eb14bc0a666!2sWestminster%20Adult%20Education%20Service%2C%20Amberley%20Road%2C%20London!3m2!1d51.5230403!2d-0.19185!5e0!3m2!1sen!2suk!4v1701603883073!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </section>
 
