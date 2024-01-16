@@ -14,6 +14,8 @@ Over the shorter distance, shared E-Cycles has demonstrated itself to be more vi
 
 In order to avoid duplication, we have referred to Module 1 Readme.md so that user has a source for all vital information.
 
+https://ui.dev/amiresponsive?url=https://hbeun8.github.io/Module-2/index.html
+
 ### Table of Contents:
 
 1.  [Project Goals:](#1-project-goals)
@@ -75,11 +77,14 @@ Framework and Tools: Visual Studio, Github, Notepad, Postcode API, TFL API, Goog
 1.  ## Landing Page
 
     This shows the features of the Landing Page.
+<img width="800" alt="image" src="https://github.com/hbeun8/module2/assets/120073730/084978b1-2c65-4df4-ba81-b00df28af15d">
     The landing page shows the Control Section of the Journey Planner where the user can enter postcodes to start and end the journey. The button checks if the postcode entered by the user is correct.
 
     We have incorporated error handing should the user enter an incorrect postcode.The user will be informed if the postcode is incorrect through the Alert box.
+    
+<img width="800" alt="image" src="https://github.com/hbeun8/module2/assets/120073730/1441a286-4133-4bbf-88bf-02ef5663fa18">
 
-2.  ## Dynamic Journey Planner - The Results page
+3.  ## Dynamic Journey Planner - The Results page
 
     This section shows the results section of the journey planner. The user has the ability to see journey for 4 modes of transportation:
         - Bus
@@ -87,10 +92,13 @@ Framework and Tools: Visual Studio, Github, Notepad, Postcode API, TFL API, Goog
         - Cycling
         - Walking
     For each mode of transportation, the results section shows Routes, Duration, Interchange and Cost. The results are dynamically updated when the user presses the associated button. The results are obtained TFL Open API.
+<img width="800" alt="image" src="https://github.com/hbeun8/module2/assets/120073730/ed37f8c2-a434-4793-a94d-bbf135117f20">
+<img width="800" alt="image" src="https://github.com/hbeun8/module2/assets/120073730/ccb3adc9-2845-43ea-be5c-49b566baf3c4">
 
-3. ## Dynamic Clock
+4. ## Dynamic Clock
 
     This is a clock that shows local time and is updated everysecond. The time starts automatically using window.onload method.
+<img width="400" alt="image" src="https://github.com/hbeun8/module2/assets/120073730/043e4237-5dfd-4aa1-a723-a7eeac8e70f0">
 
 # 6 Testing {#6-testing}
 
@@ -98,37 +106,31 @@ Framework and Tools: Visual Studio, Github, Notepad, Postcode API, TFL API, Goog
 
 ### HTML
 
-No errors were returned when passing through the official validation for the main html. There was one error regarding font-awesome script. As that is not the main focus of the exam we have ignored it.
-<img width="300" alt="image" src="https://github.com/hbeun8/Module-1/assets/120073730/8e4f064f-5a05-4304-9c04-b990475c6aba">
-
+No errors were returned when passing through the official validation for the main html.
 (https://validator.w3.org/nu/#textarea)
 
 ### CSS
 
 No errors were found when passing through the official validator.
-<img width="590" alt="image" src="https://github.com/hbeun8/Module-1/assets/120073730/c4ff0b79-d2b7-4215-8f35-9f68088c2ae8">
-
 (https://jigsaw.w3.org/css-validator/validator)
-
 Instructions on how to validate was taken from \[Code Institute\](https://learn.codeinstitute.net/courses/)
 
 ### JavaScript
 No errors were found when passing through the official validator.
+JSHint and JSLint. There were warnings however, but those were more applicable to older version of JavaScript.  
+https://www.jslint.com/
+https://jshint.com/
 
 ## Accessibility
-
 Colors and fonts chosen are easy to read and accessible by running it through lighthouse in dev-tools.
 
 ## Performance
-
 No issues observed while loading page
 
 ## Device Testing
-
 The webpage was designed to operate on different screen-sizes. The coding was defined using mobile first principles.
 
 ## Browser compatibility
-
 Compatible with all browsers based on MDN.org Also, accessibility checked using Lighthouse built in the Chrome Dev Tool.
 
 ## Testing user stories
@@ -140,9 +142,8 @@ This project follows from Module 1 where we took feedback from two group: <br>
 
 ## Unfixed Bugs
 
-1. Digital Clock is not formatted in CSS.
-2. API results for Tube, Cycle and Busses are not working correctly. This will be addressed in the coming days.
-
+1. API results for Tube and Walk are not working correctly. The journey are not same as those appearing on the TFL website. This will be addressed in the coming days.
+2. Deployement -  the site has not yet been deployed using Github actions. This will be addressed in the coming days.
 
 # 8. Deployment {#8-deployment}
 
