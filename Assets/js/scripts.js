@@ -172,25 +172,29 @@ function showBusDetails(data) {
     document.getElementById("busDuration").innerHTML=``;
     const busOptions = data.length;
     document.getElementById("busRoutes").innerHTML = `There are ${busOptions} possible routes:`;
-    document.getElementById("busInterchange").innerHTML = `There require ${data[0].legs.length} interchange.`;
+    document.getElementById("busInterchange").innerHTML = `They require upto ${data[0].legs.length} interchanges.`;
     for (i=0;i<busOptions;i++){
         document.getElementById("busDuration").innerHTML += `Routes #${i+1} takes:${parseInt(data[i].duration)} minutes.`;
     }
 
 }
 function showTubeDetails(data) {
-    document.getElementById("tubeDistance").innerHTML = data["Distance"];
-    document.getElementById("tubeDuration").innerHTML = data["Duration"];
-    document.getElementById("tubeInterchange").innerHTML = data["Interchange"];
+    document.getElementById("tubeDuration").innerHTML=``;
+    const tubeOptions = data.length;
+    document.getElementById("tubeRoutes").innerHTML = `There are ${tubeOptions} possible routes:`;
+    document.getElementById("tubeInterchange").innerHTML = `They require upto ${data[0].legs.length} interchanges.`;
+    for (i=0;i<busOptions;i++){
+        document.getElementById("tubeDuration").innerHTML += `Routes #${i+1} takes:${parseInt(data[i].duration)} minutes.`;
+    }
 }
 
 function showWalkingDetails(data) {
-    document.getElementById("walkDistance").innerHTML = data["Distance"];
-    document.getElementById("walkDuration").innerHTML = data["Duration"];
-    document.getElementById("walkInterchange").innerHTML = data["Interchange"];
+    document.getElementById("walkDuration").innerHTML=``;
+    document.getElementById("walkDuration").innerHTML = `Routes #1 takes:${parseInt(data[0].duration)} minutes.`;
 }
+
 function showCycleDetails(data) {
-document.getElementById("cycleDistance").innerHTML = data.distance;
-document.getElementById("cycleDuration").innerHTML = data.duration;
-document.getElementById("cycleInterchange").innerHTML = 'Not applicable';
+    document.getElementById("cycleDuration").innerHTML=``;
+    document.getElementById("cycleDuration").innerHTML = `Route #1 takes:${parseInt(data[0].duration)} minutes.`;
+    document.getElementById("cycleCost").innerhtml = `£ ${parseFloat(data[0].duration*0.17)}`
 }
