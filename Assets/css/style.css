@@ -430,13 +430,19 @@ footer h1, h2{
     transition: 1s;
 }
 
+img {
+    width: "280";
+}
+
 /* Media query: large or landscape phones (576px and up) */
 @media screen and (min-width: 576px) {
    
 }
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
-
+    img{
+        width: "660";
+    }
     header{
         background-image: linear-gradient(
         to bottom,
