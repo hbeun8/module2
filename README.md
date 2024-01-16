@@ -8,11 +8,6 @@ This is the ReadMe.md for the project below. The main purpose of this document i
 
 ## Project name: Eclectic Cycles - Journey Planner and Comparer
 
-<img width="686" alt="image" src="https://github.com/hbeun8/Module-1/assets/120073730/f8c6ecef-9593-4724-9e13-c5b9adb17dad">
-
-https://ui.dev/amiresponsive?url=https://hbeun8.github.io/Module-1/index.html
-
-
 Purpose of the website: This project builds on the work performed in Module 1 - Eclectic Cycles. For this project we have added Journey Planner and Comparer to the website so that users can plan their journey using rented electric cycles. Furthermore, it also allows the user make comparisions with other modes of transportation such as Walking, Buses, Tube and Car. 
 
 Over the shorter distance, shared E-Cycles has demonstrated itself to be more virtuous than mass public demonstration, by being quicker, more affordable, more flexible and with zero emissions it is also kinder to mother nature. It is the aim of the project to evidence this with live data using the Transport for London Api live data.
@@ -79,21 +74,21 @@ Framework and Tools: Visual Studio, Github, Notepad, Postcode API, TFL API, Goog
 
 1.  ## Landing Page
 
-    This shows the features of the Landing Page, which includes responsive design of navigation bar and buttons. The website is mobile friendly too.
+    This shows the features of the Landing Page.
+    The landing page shows the Control Section of the Journey Planner where the user can enter postcodes to start and end the journey. The button checks if the postcode entered by the user is correct.
 
-2.  ## Dynamic Coverage and Cost Details for Each Provider
+    We have incorporated error handing should the user enter an incorrect postcode.The user will be informed if the postcode is incorrect through the Alert box.
 
-    Details of coverage area and prices for each provider
+2.  ## Dynamic Journey Planner - The Results page
 
-    Also, this provides users with information on what types of electric vehicles are on offer from our participants.
+    This section shows the results section of the journey planner. The user has the ability to see journey for 4 modes of transportation:
+        - Bus
+        - Tube
+        - Cycling
+        - Walking
+    For each mode of transportation, the results section shows Routes, Duration, Interchange and Cost. The results are dynamically updated when the user presses the associated button. The results are obtained TFL Open API.
 
-3. ## Dynamic Bookings/ Plan your Journey Page.
-
-    This is a demo/static page. The idea of this page is that users will be able to plan their journey/ get information on the cost and time it takes to travel through diverse mix of mass public transportation.<br>
-
-    Furthermore, through an embeded google maps link, user can see what bikes are available in the area giving great choice.<br>
-
-4. ## Dynamic Clock
+3. ## Dynamic Clock
 
     This is a clock that shows local time and is updated everysecond. The time starts automatically using window.onload method.
 
@@ -118,6 +113,7 @@ No errors were found when passing through the official validator.
 Instructions on how to validate was taken from \[Code Institute\](https://learn.codeinstitute.net/courses/)
 
 ### JavaScript
+No errors were found when passing through the official validator.
 
 ## Accessibility
 
@@ -136,8 +132,7 @@ The webpage was designed to operate on different screen-sizes. The coding was de
 Compatible with all browsers based on MDN.org Also, accessibility checked using Lighthouse built in the Chrome Dev Tool.
 
 ## Testing user stories
-
-We took feedback from two group: <br>
+This project follows from Module 1 where we took feedback from two group: <br>
 1. General user on the UX design and stories.<br> 
 2. Student Coders in classroom on the design principles and other technical aspects. Based on the feedback provided, the website was enhanced to incorporate the suggestion.
 
@@ -145,9 +140,9 @@ We took feedback from two group: <br>
 
 ## Unfixed Bugs
 
-1. Fontawesome Icons fails to load, ocassionaly. Affects Footer and NavBar Section.
-2. Bug fixed: There was an error regarding vertical alignment in the footer section in the desktop view, but that has been fixed.
-3. There are no more known bugs.
+1. Digital Clock is not formatted in CSS.
+2. API results for Tube, Cycle and Busses are not working correctly. This will be addressed in the coming days.
+
 
 # 8. Deployment {#8-deployment}
 
