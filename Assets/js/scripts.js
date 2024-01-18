@@ -104,9 +104,6 @@
   }
   
   function planJourney(from, to, mode){
-      
-      //this creates an empty results area.
-  //    document.getElementById("result area").value= "";    
           
       switch (mode) {
           case "Cycle":
@@ -116,10 +113,10 @@
               url = `https://api.tfl.gov.uk/Journey/JourneyResults/${from}/to/${to}?timeIs=Departing&journeyPreference=LeastInterchange&mode=Bus&accessibilityPreference=NoRequirements&walkingSpeed=Slow&cyclePreference=None&bikeProficiency=Easy`;
               break;
           case "Tube":
-              url = `https://api.tfl.gov.uk/Journey/JourneyResults/${from}/to/${to}?timeIs=Departing&journeyPreference=LeastInterchange&mode=Tube&accessibilityPreference=NoRequirements&walkingSpeed=Slow&cyclePreference=None&bikeProficiency=Easy`;
+              url = `https://api.tfl.gov.uk/Journey/JourneyResults/${from}/to/${to}?timeIs=Arriving&journeyPreference=LeastInterchange&mode=tube&accessibilityPreference=NoRequirements&walkingSpeed=Slow&cyclePreference=None&bikeProficiency=Easy`;
               break;
           case "Walk":
-              url = `https://api.tfl.gov.uk/Journey/JourneyResults/${from}/to/${to}?timeIs=Departing&Preference=NoRequirements&walkingSpeed=Fast&cyclePreference=None&bikeProficiency=Easy`;
+              url = `https://api.tfl.gov.uk/Journey/JourneyResults/${from}/to/${to}?timeIs=Departing&journeyPreference=LeastInterchange&mode=walking&accessibilityPreference=NoRequirements&walkingSpeed=Fast&cyclePreference=None&bikeProficiency=Easy`;
               break;
       }
   
@@ -166,35 +163,63 @@
       }
   }
   
-  
+  function createP(id, txt){
+    para = document.createElement("p");
+    txtNode = document.createTextNode(txt);
+    para.appendChild(txtNode);
+    pnt = document.getElementById(id);
+    pnt.appendChild(para);
+  }
   
   function showBusDetails(data) {
-      document.getElementById("busDuration").innerHTML=``;
-      const busOptions = data.length;
-      document.getElementById("busRoutes").innerHTML = `There are ${busOptions} possible routes:`;
-      document.getElementById("busInterchange").innerHTML = `They require upto ${data[0].legs.length} interchanges.`;
-      for (i=0;i<busOptions;i++){
-          document.getElementById("busDuration").innerHTML += `Routes #${i+1} takes:${parseInt(data[i].duration)} minutes.`;
+      document.getElementById("busRoot").innerHTML=``;
+      const busData = [data.length, data[0].legs.length];
+      root = document.getElementById("busRoot");
+      
+      busSum = [`Fastest Routes with Bus:`, 
+      `There are ${busData[0]} possible routes.`, 
+      `Interchanges: They require upto ${busData[1]} interchanges.`,
+      `Duration: `];
+      
+      for (i=0;i<busSum.length;i++){
+        createP("busRoot", busSum[i]);
       }
-  
+      
+      for (i=0;i<busData[0];i++){
+        createP("busRoot", `Routes #${i+1} takes:${parseInt(data[i].duration)} minutes.`);
+    }
+        createP("busRoot","Cost*: Daily cap is £5.25.");
+        createP("busRoot", "Hopper fare allows unlimited bus journeys within one hour of first touching in for £1.75.");
+                    
   }
   function showTubeDetails(data) {
-      document.getElementById("tubeDuration").innerHTML=``;
-      const tubeOptions = data.length;
-      document.getElementById("tubeRoutes").innerHTML = `There are ${tubeOptions} possible routes:`;
-      document.getElementById("tubeInterchange").innerHTML = `They require upto ${data[0].legs.length} interchanges.`;
-      for (i=0;i<tubeOptions;i++){
-          document.getElementById("tubeDuration").innerHTML += `Routes #${i+1} takes:${parseInt(data[i].duration)} minutes.`;
-      }
+    document.getElementById("tubeRoot").innerHTML=``;
+    const tubeData = [data.length, data[0].legs.length];
+    root = document.getElementById("tubeRoot");
+    tubeSum = [`Fastest Routes with Tube:`, 
+    `There are ${tubeData[0]} possible routes.`, 
+    `Interchanges: They require upto ${tubeData[1]} interchanges.`,
+    `Duration: `];
+    
+    for (i=0;i<tubeSum.length;i++){
+      createP("tubeRoot", tubeSum[i]);
+    }
+    
+    for (i=0;i<tubeData[0];i++){
+      createP("tubeRoot", `Routes #${i+1} takes:${parseInt(data[i].duration)} minutes.`);
+  }
+      createP("tubeRoot","Cost*: Daily cap for zones 1-4 is £11.70. A single fare journey costs £3.40/£2.80");
+      createP("tubeRoot", "*Alternative fares: Avoiding zone 1, a single fare journey costs £1.75.");
   }
   
   function showWalkingDetails(data) {
-      document.getElementById("walkDuration").innerHTML=``;
-      document.getElementById("walkDuration").innerHTML = `This journey will take ${parseInt(data[0].duration)} minutes.`;
+      document.getElementById("walkRoot").innerHTML=``;
+      document.getElementById("walkRoot").innerHTML = `This journey will take ${parseInt(data[0].duration)} minutes.`;
   }
   
   function showCycleDetails(data) {
-      document.getElementById("cycleDuration").innerHTML=``;
-      document.getElementById("cycleDuration").innerHTML = `This journey will take ${parseInt(data[0].duration)} minutes.`;
-      document.getElementById("cycleCost").innerHTML = `£ ${Math.round(parseFloat(data[0].duration*0.17))}`
-  }
+      document.getElementById("cycleRoot").innerHTML=``;
+      createP("cycleRoot", `This journey will take ${parseInt(data[0].duration)} minutes.`);
+      createP("cycleRoot", `Cost* \nDaily charge 17p per minute. Total Cost: £ ${Math.round(parseFloat(data[0].duration*0.17))}`);
+      createP("cycleRoot",`*Alternative fares: Passes available for 60/120mins cost £5.99/£10.99, respectively.`);  
+    }
