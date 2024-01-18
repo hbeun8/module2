@@ -13,8 +13,9 @@ Purpose of the website: This project builds on the work performed in Module 1 - 
 Over the shorter distance, shared E-Cycles has demonstrated itself to be more virtuous than mass public demonstration, by being quicker, more affordable, more flexible and with zero emissions it is also kinder to mother nature. It is the aim of the project to evidence this with live data using the Transport for London Api live data.
 
 In order to avoid duplication, we have referred to Module 1 Readme.md so that user has a source for all vital information.
+https://ui.dev/amiresponsive?url=https://hbeun8.github.io/module2/
+<img width="800" alt="image" src="https://github.com/hbeun8/module2/assets/120073730/5f5d8c4f-d68c-4568-b4e9-71bb27ded47f">
 
-https://ui.dev/amiresponsive?url=https://hbeun8.github.io/Module-2/index.html
 
 ### Table of Contents:
 
@@ -143,11 +144,12 @@ This project follows from Module 1 where we took feedback from two group: <br>
 ## Unfixed Bugs
 
 1. API results for Tube and Walk is working correctly now. The results align with the Google map results.
-2. Deployment -  the site has not yet been deployed using Github actions. This will be addressed in the coming days.
+2. Deployment has been completed on Github pages.
 
 # 8. Deployment {#8-deployment}
 
-The site has not been deployed to GitHub pages. 
+The site has been deployed to GitHub pages.
+https://hbeun8.github.io/module2/
 
 # 9. Special Thanks {#9-special-thanks}
 
