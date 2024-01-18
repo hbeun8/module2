@@ -142,8 +142,8 @@ This project follows from Module 1 where we took feedback from two group: <br>
 
 ## Unfixed Bugs
 
-1. API results for Tube and Walk are not working correctly. The journey are not same as those appearing on the TFL website. This will be addressed in the coming days.
-2. Deployement -  the site has not yet been deployed using Github actions. This will be addressed in the coming days.
+1. API results for Tube and Walk is working correctly now. The results align with the Google map results.
+2. Deployment -  the site has not yet been deployed using Github actions. This will be addressed in the coming days.
 
 # 8. Deployment {#8-deployment}
 
